@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 import de.robv.android.xposed.IXposedHookLoadPackage;
 import de.robv.android.xposed.XC_MethodHook;
@@ -17,7 +18,7 @@ public class MainHook implements IXposedHookLoadPackage {
     private static final String SYSTEM_UI = "com.android.systemui";
     private static final String QS_CLOCK_INDICATOR_VIEW = SYSTEM_UI + ".statusbar.policy.QSClockIndicatorView";
     private static final String QS_CLOCK_BELL_SOUND = SYSTEM_UI + ".statusbar.policy.QSClockBellSound";
-    private final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("Ed");
+    private final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("Ed", Locale.SIMPLIFIED_CHINESE);
 
     @Override
     public void handleLoadPackage(XC_LoadPackage.LoadPackageParam lpparam) {
